@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html 
+	lang="zh-CN">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		
+<link rel="stylesheet" href="/css/layout.css">
+
+		
+		<title> 从0搭建博客（hexo+github） -  木木林的仓库</title>
+		<!-- <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" /> -->
+		<!-- <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script> -->
+		
+<link rel="stylesheet" href="/lib/mdui/mdui.min.css">
+
+		
+<script src="/lib/mdui/mdui.min.js"></script>
+
+		<!-- lazyload -->
+		
+<script src="/lib/lazysizes.js"></script>
+
+		<!-- smooth-scrolling -->
+		
+<script src="/lib/smooth-scrolling.js"></script>
+
+		<!-- highlight -->
+		
+<link rel="stylesheet" href="/lib/highlight/atom-one-dark.min.css">
+
+		
+<script src="/lib/highlight/highlight.min.js"></script>
+
+		<!-- 预置 kiraicon -->
+		
+<link rel="stylesheet" href="/lib/iconfont/iconfont.css">
+
+		
+		<link
+			rel="shortcut icon"
+			href="/img/002.jpg"
+			type="image/png"
+		/>
+		
+<link rel="stylesheet" href="/deps/css/APlayer.min.css">
+
+		
+		
+<script src="/deps/js/APlayer.min.js"></script>
+<script src="/deps/js/Meting.min.js"></script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		<div
+			class="kira-background"
+			style="background-image: url('/img/001.jpg')"
+		></div>
+		<div class="kira-header">
+    <a
+        class="kira-drawer-button mdui-ripple"
+        title="导航栏"
+        onclick="document.querySelector('.kira-sidebar-modal').classList.add('show');document.querySelector('.kira-sidebar#sidebar').classList.add('show');"
+    >
+        <i class="kirafont icon-menu"></i>
+    </a>
+    <a href="/" title="木木林的仓库">
+        <img
+			src="/img/003.jpg"
+			alt="mumulin"
+		/>
+    </a>
+</div>
+		<div class="kira-body">
+			<div class="kira-sidebar" id="sidebar">
+	<div class="kira-avatar mdui-ripple">
+		<a href="/img/003.jpg" title="mumulin">
+			<img
+				src="/img/003.jpg"
+				alt="mumulin"
+			/>
+		</a>
+	</div>
+	<div class="kira-count">
+		<div><span>文章</span>3</div>
+		<div><span>标签</span>0</div>
+		<div><span>分类</span>0</div>
+	</div>
+	<div class="kira-list">
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/"
+			title="回到首页"
+		>
+			<i
+				class="kirafont
+					
+						icon-home
+					"
+			></i>
+			<div class="kira-list-item-content">
+				回到首页
+			</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/archive.html"
+			title="文章归档"
+		>
+			<i
+				class="kirafont
+					
+						icon-container
+					"
+			></i>
+			<div class="kira-list-item-content">
+				文章归档
+			</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/about.html"
+			title="关于本人"
+		>
+			<i
+				class="kirafont
+					
+						icon-user
+					"
+			></i>
+			<div class="kira-list-item-content">
+				关于本人
+			</div>
+		</a>
+		
+		<a
+			class="kira-list-item mdui-ripple false"
+			href="/friends.html"
+			title="我的朋友"
+		>
+			<i
+				class="kirafont
+					
+						icon-team
+					"
+			></i>
+			<div class="kira-list-item-content">
+				我的朋友
+			</div>
+		</a>
+		
+	</div>
+	<aside id="kira-sidebar">
+		
+			<div class="kira-widget-wrap">
+	<div class="kira-widget kira-social">
+		
+			<a
+				class="mdui-ripple"
+				href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=3182714956&website=www.oicqzone.com"
+				target="_blank"
+				mdui-tooltip="{content: 'QQ'}"
+				style="color: rgb(49, 174, 255); background-color: rgba(49, 174, 255, .1);"
+			>
+				<i
+					class="kirafont
+					
+						icon-QQ
+					"
+				></i>
+			</a>
+		
+			<a
+				class="mdui-ripple"
+				href="https://bilibili.com"
+				target="_blank"
+				mdui-tooltip="{content: '哔哩哔哩'}"
+				style="color: rgb(231, 106, 141); background-color: rgba(231, 106, 141, .15);"
+			>
+				<i
+					class="kirafont
+					
+						icon-bilibili
+					"
+				></i>
+			</a>
+		
+			<a
+				class="mdui-ripple"
+				href="https://github.com/Sherllin?tab=repositories"
+				target="_blank"
+				mdui-tooltip="{content: 'GitHub'}"
+				style="color: rgb(25, 23, 23); background-color: rgba(25, 23, 23, .15);"
+			>
+				<i
+					class="kirafont
+					
+						icon-github
+					"
+				></i>
+			</a>
+		
+			<a
+				class="mdui-ripple"
+				href="https://gitee.com/dashboard/projects"
+				target="_blank"
+				mdui-tooltip="{content: 'Gitee'}"
+				style="color: rgb(165, 15, 15); background-color: rgba(165, 15, 15, .15);"
+			>
+				<i
+					class="kirafont
+					
+						icon-gitee
+					"
+				></i>
+			</a>
+		
+	</div>
+</div>
+
+		
+			
+		
+			
+
+		
+			
+	<div class="kira-widget-wrap">
+		<h3 class="kira-widget-title">
+			文章归档
+		</h3>
+		<div class="kira-widget">
+			<ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">3</span></li></ul>
+		</div>
+	</div>
+
+
+		
+	</aside>
+	<div class="kira-copyright">
+		&copy; 2024
+		<a href="/">mumulin</a>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> &
+		<a href="https://github.com/ch1ny/kira-hexo/" target="_blank">Kira-Hexo</a>
+		<br />
+		
+			<a
+				href="https://beian.miit.gov.cn/"
+				target="_blank"
+			>
+				明日方舟，启动！！！
+			</a>
+		
+		
+	</div>
+</div>
+<div
+	class="kira-sidebar-modal"
+	id="sidebar-modal"
+	onclick="(function(self) {
+		self.classList.remove('show');
+		document.querySelector('.kira-sidebar.show#sidebar').classList.remove('show');
+	})(this)"
+></div>
+			<div class="kira-content">
+				<div id="kira-top-header"></div>
+				<div class="kira-main-content">
+					
+<link rel="stylesheet" href="/css/kira-image.css">
+
+
+<script src="/js/kira-image.js"></script>
+
+<div class="kira-image">
+    <div class="kira-image-modal">
+        <div class="kira-image-header">
+            <div class="kira-image-counter"></div>
+            <div class="kira-image-title"></div>
+            <div class="kira-image-operation">
+                <div class="kira-image-operation-button" id="kira-image-operation-button-zoom">
+                    <i class="kirafont icon-zoom-in"></i>
+                </div>
+                <div class="kira-image-operation-button" id="kira-image-operation-button-close">
+                    <i class="kirafont icon-close"></i>
+                </div>
+            </div>
+        </div>
+        <div class="kira-image-container">
+            <div class="kira-image-prev-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-left"></i>
+                </div>
+            </div>
+            <div class="kira-image-list">
+                <div class="kira-image-prev">
+                    <img />
+                </div>
+                <div class="kira-image-now">
+                    <img />
+                </div>
+                <div class="kira-image-next">
+                    <img />
+                </div>
+            </div>
+            <div class="kira-image-next-button-panel">
+                <div class="kira-image-exchange-button">
+                    <i class="kirafont icon-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+	
+<link rel="stylesheet" href="/css/kira-code-copy.css">
+
+	
+<script src="/js/kira-code-copy.js"></script>
+
+
+<div class="kira-post">
+	<article>
+		
+		<div class="kira-post-cover">
+			<img
+				data-src="/img/img-1th/-1.png"
+				data-sizes="auto"
+				alt="从0搭建博客（hexo+github）"
+				class="lazyload kira-post-cover-image disabled-kira-image"
+			/>
+			<h1>从0搭建博客（hexo+github）</h1>
+		</div>
+		
+		<div class="kira-post-meta kira-rainbow" style="margin:10px 0!important;">
+			<a><i class="kirafont icon-calendar-fill"></i>2024年04月06日</a>
+			<a><i class="kirafont icon-edit-fill"></i>2.3k 字</a>
+			<a><i class="kirafont icon-time-circle-fill"></i>大概 10 分钟</a>
+		</div>
+		<h2><span id="零-写在前面">零、写在前面</span></h2><p><strong>2024&#x2F;04&#x2F;06 21：42</strong>		</p>
+<p>这是我的第一篇博客，之所以写这个，是因为我在搭建我的博客的时候，看了很多教程，踩了很多坑，一些csdn上写着保姆级教程的文章，中间少了很多步骤细节，不适合小白一步一步跟着做。所以，我写这篇博客，是根据我花了两三天，踩了无数坑总结写出的一篇零基础，跟着走就能搭建博客的教程。我积极听取你们的意见，有任何不对的地方，也请大家不吝赐教，我会在日后勘正。这篇博客只讲了如何搭建hexo+github的博客，关于jeykll和gitee我会在之后的博客出，因为我刚搭建完我的博客就马不停蹄、迫不及待写下这篇博客了，还没了解到jeykll和gitee，但是听说gitee比github更稳定哦！</p>
+<h2><span id="一-安装git">一、安装git</span></h2><p><img src="/%5Cimg%5Cimg-1th%5Cgit000.jpg"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.alipan.com/s/fxNUpoqBcPK">https://www.alipan.com/s/fxNUpoqBcPK</a></p>
+<p>提取码：II79</p>
+</blockquote>
+<p>上面是<code>Git-2.44.0-64-bit.exe</code>的阿里云盘链接（永久有效）</p>
+<p>如有需要其他版本，可以访问以下Git官网链接</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/">Git (git-scm.com)</a></p>
+</blockquote>
+<hr>
+<p>双击exe文件，开始安装</p>
+<p><img src="/%5Cimg%5Cimg-1th%5Cgit002.png"></p>
+<p>安装路径，请自行选择</p>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cgit003.png"></p>
+<p>推荐使用<code>vscode</code>作默认编辑器（vscode请自行下载）</p>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cgit004.png"></p>
+<p>除此之外，一路next到底，最后点击finish即可</p>
+<h2><span id="二-安装nodejs并且配置环境">二、安装node.js并且配置环境</span></h2><h3><span id="1安装nodejs">1.安装node.js</span></h3><p><img src="/%5Cimg%5Cimg-1th%5Cnode000.png"></p>
+<p>推荐去官网下载（下载LTS，即长期维护的版本）</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/en">Node.js — Run JavaScript Everywhere (nodejs.org)</a></p>
+</blockquote>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cnode001.png"></p>
+<p>我的安装路径，可自行选择，推荐默认</p>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cnode002.png"></p>
+<p>其他直接next即可，最后点击finish完成安装</p>
+<hr>
+<h3><span id="2配置环境">2.配置环境</span></h3><img src="\img\img-1th\node003.png" style="zoom:80%;">
+
+<p>键盘win键，搜索环境变量打开</p>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cnode004.png"></p>
+<p><img src="/%5Cimg%5Cimg-1th%5Cnode005.png"></p>
+<p>先点击右下角环境变量，再在下面的系统变量中找到Path，点击右下角编辑，在其中添加你的nodejs的安装路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">C:\Program Files\nodejs\<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cnode006.png"></p>
+<p>去到你nodejs的安装路径下，新建两个文件夹</p>
+<p>第一个命名为：<code>Node_global</code></p>
+<p>第二个命名为：<code>Node_cache</code></p>
+<p>global是全局模块安装路径（npm下载路径）</p>
+<p>cache是缓存路径</p>
+<hr>
+<img src="\img\img-1th\node007.png" style="zoom:80%;">
+
+<p>按下键盘win键，搜索命令，以管理员身份运行</p>
+<p>在命令行输入如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm config set prefix &quot;C:\Program Files\nodejs\node_global&quot;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm config set cache &quot;C:\Program Files\nodejs\node_cache&quot;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm config set registry https://registry.npmmirror.com<br></code></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<p><code>C:\Program Files\nodejs\</code>是你的nodejs安装路径</p>
+<p><code>https://registry.npmmirror.com</code>是npm的国内镜像源</p>
+<hr>
+<h2><span id="三-创建github的ssh-key">三、创建github的ssh key</span></h2><p>github账号请自行注册</p>
+<p><img src="/%5Cimg%5Cimg-1th%5Cssh000.png"></p>
+<p>注册完成后，点击右上角头像，再点击settings进入设置</p>
+<p>最后在左边点击ssh and gpg keys</p>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cssh001.png"></p>
+<p>点击右上角new ssh key，出现界面如上，先放在这</p>
+<hr>
+<p>打开刚刚下载的git bash</p>
+<p>不知道怎么打开就在桌面点击鼠标右键，点击open git bash here</p>
+<p>输入命令如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">git config --global user.name &quot;Sherllin&quot;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">git config --global user.email &quot;3182714956@qq.com&quot;<br></code></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<p>Sherllin换成你注册的github的用户名</p>
+<p>邮箱换成你github绑定的邮箱</p>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cssh002.png"></p>
+<p>输入命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ssh-keygen -t rsa -C &quot;3182714956@qq.com&quot;<br></code></pre></td></tr></table></figure>
+
+<p>提示(y&#x2F;n)? 输入y</p>
+<p>出现如上结果</p>
+<p>去到<code>your public key has been saved in</code>后面的地址</p>
+<p>把内容复制下来</p>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cssh003.png"></p>
+<p>把刚刚复制的内容copy到下面的key中，title名随便取，如用户名-ssh</p>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Cssh004.png"></p>
+<p>打开git bash界面，输入命令如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">ssh -T git@github.com<br></code></pre></td></tr></table></figure>
+
+<p>出现上面图片中的最后一行信息即为成功</p>
+<hr>
+<h2><span id="四-安装hexo">四、安装hexo</span></h2><p><img src="/%5Cimg%5Cimg-1th%5Chexo000.png"></p>
+<p>新建文件夹，用来放hexo的文件以及博客的主题</p>
+<p>我在桌面创建了一个</p>
+<p>管理员身份运行命令提示符（和上面一样）</p>
+<p>输入如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">cd C:\Users\31827\Desktop\hsl-blog<br></code></pre></td></tr></table></figure>
+
+<p>cd后面换成你的文件夹路径</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm install -g hexo-cli<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">hexo init<br></code></pre></td></tr></table></figure>
+
+<p>出现start blogging with Hexo！即成功一半</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm install<br></code></pre></td></tr></table></figure>
+
+<p>大功告成！</p>
+<hr>
+<p><img src="/%5Cimg%5Cimg-1th%5Chexo001.png"></p>
+<p>你的文件夹会出现上面这些东西</p>
+<p>在空白处鼠标右击，open git bash here</p>
+<p>输入如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">hexo g<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">hexo s<br></code></pre></td></tr></table></figure>
+
+<p>出现界面如下：</p>
+<p><img src="/%5Cimg%5Cimg-1th%5Chexo002.png"></p>
+<p>小小解释一下</p>
+<p>hexo g是hexo generate的简写，作用是生成博客目录，通俗一点就是将你刚刚文件夹下那些东西统统打包成一个文件夹（这个文件夹叫public,执行hexo g 后你会发现原来的文件夹多出来一个public文件夹），这个public文件夹里面装了html&#x2F;css&#x2F;js等文件，包含了你网页实现的全部东西，总而言之，<code>hexo g的作用就是封装</code></p>
+<p>hexo s是hexo hexo server的简写，你只需要知道它的作用就是把你当前文件夹的public文件运行起来，放在你本地端口上给你<code>预览</code></p>
+<p>好了，就讲到这吧，我想你已经迫不及待想看到你的网页了</p>
+<p>在浏览器输入上一张图片中有下划线的网址吧</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">http://localhost:4000/<br></code></pre></td></tr></table></figure>
+
+<p><img src="/%5Cimg%5Cimg-1th%5Chexo003.png"></p>
+<p>出现上面的页面就成功啦！</p>
+<hr>
+<h2><span id="五-在github上搭建仓库">五、在github上搭建仓库</span></h2><p>在github首页点击create repositories</p>
+<p>repository name只能填   <code>用户名.github.io</code></p>
+<p><img src="/%5Cimg%5Cimg-1th%5Crepo000.png"></p>
+<p>因为github只允许一个账号部署一个静态网页</p>
+<p><img src="/%5Cimg%5Cimg-1th%5Crepo001.png"></p>
+<p>这是你仓库的https或者ssh地址，后面会用到</p>
+<p>tip：如果你的仓库上传过东西，点击绿色的code就能看到https或ssh地址了</p>
+<hr>
+<h2><span id="六-更换hexo主题">六、更换hexo主题</span></h2><p>刚刚你打开的博客你可能觉得不好看或功能太少</p>
+<p>别担心，去hexo官网挑选主题吧</p>
+<p>四百多个主题，完全免费哦</p>
+<p>地址如下</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/themes/">Themes | Hexo</a></p>
+</blockquote>
+<p><img src="/%5Cimg%5Cimg-1th%5Chexo005.png"></p>
+<p>上面这个是我选的主题</p>
+<p><img src="/%5Cimg%5Cimg-1th%5Chexo004.png"></p>
+<p>选择后，它会跳转到github的链接，这是<strong>别人的仓库</strong>，你要把它克隆到本地</p>
+<p>点击绿色的code按钮，https和ssh随便你复制哪个</p>
+<p>打开你刚刚建的用来放博客的文件夹，我的是桌面的hsl-blog</p>
+<p>鼠标右击，open git bash here</p>
+<p>输入如下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">git clone 你刚刚复制的别人仓库的https或ssh的链接 themes/particlex<br></code></pre></td></tr></table></figure>
+
+<p>particlex改成你挑的hexo主题名字</p>
+<p>这条命令运行完后，你的原文件夹下的themes文件夹会多一个以你hexo主题命名的文件夹</p>
+<hr>
+<p>打开原文件夹下的_config.yml配置文件</p>
+<p><img src="/%5Cimg%5Cimg-1th%5Chexo006.png"></p>
+<p>拉到最后，theme更改为你的hexo主题名字，</p>
+<p>repository粘贴<strong>你的仓库地址</strong>（上面有提到）</p>
+<p>其他保持一样就行</p>
+<hr>
+<p>以管理员身份运行命令提示符（和上面提到的一样）</p>
+<p>cd到你放博客的文件夹，比如我的是下面这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">cd C:\Users\31827\Desktop\hsl-blog<br></code></pre></td></tr></table></figure>
+
+<p>接着输入如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm install -i hexo-theme-particlex<br></code></pre></td></tr></table></figure>
+
+<p>particlex改为你的hexo主题名字</p>
+<p>上面的命令执行完，你原文件的node_modules会多出一个</p>
+<p><code>hexo-theme-（你的hexo主题）</code>文件夹</p>
+<p>接着输入命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm install hexo-deployer-git --save<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p>好了，进行最后一步</p>
+<p>回到你原文件夹，鼠标右击，open git bash here</p>
+<p>依次输入以下命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">hexo cl<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">hexo g<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">hexo d<br></code></pre></td></tr></table></figure>
+
+<p><img src="/%5Cimg%5Cimg-1th%5Chexo007.png"></p>
+<p>出现以上界面则说明导入github仓库成功</p>
+<p>接着等待一两分钟后，你的博客项目就部署完成了</p>
+<p>输入  你的github用户名.github.io就可以访问啦！</p>
+<p>我的是</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://sherllin.github.io/">木木林的仓库 (sherllin.github.io)</a></p>
+</blockquote>
+<p>欢迎大家访问！</p>
+<hr>
+<h2><span id="七-写博客">七、写博客</span></h2><p>这边推荐大家下载一个写博客的好工具typora</p>
+<p>正版要收费的</p>
+<p>我给大家推荐csdn的一篇文章，安装破解版并且激活</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/laosao_66/article/details/133048064?ops_request_misc=%7B%22request_id%22:%22171240907216800222836556%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=171240907216800222836556&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-133048064-null-null.142%5Ev100%5Epc_search_result_base3&utm_term=typora%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187">Markdown（MD）——Typora Markdown安装教程（2023九月亲测可用！！！）_md编辑器-CSDN博客</a></p>
+</blockquote>
+<p>关于topora的语法规则，十分简单，就不赘述了，大家自行上网查询</p>
+<p><img src="/%5Cimg%5Cimg-1th%5Chsl000.png"></p>
+<p>我们回到原文件下，我们的博客放在哪呢</p>
+<p>打开source文件夹，里面有个_posts文件夹，我们的博客就放在这，进入 _posts文件夹，新建文本文档</p>
+<p>命名格式为<code>yy-mm-dd-标题.md</code></p>
+<p>标题自取</p>
+<p>举例如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">24-04-06-1th.md<br></code></pre></td></tr></table></figure>
+
+<p>然后我们用typora打开这个文本文档就可以开始写了</p>
+<hr>
+<p>写完后该怎么上传到github仓库呢？</p>
+<p>很简单，我们会到原文件夹下（也就是上面那张图下）</p>
+<p>鼠标右击，open git bash here</p>
+<p>输入如下命令即可上传博客：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">hexo g<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">hexo d<br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>提一嘴：</strong></p>
+<p><strong>你的博客想插入本地图片怎么办呢？</strong></p>
+<p>在你的source文件夹新建img文件夹就好了，图片放在里面，你执行hexo g的时候会检索source文件夹的资源，就会把img文件夹放到它封装的public中去</p>
+<p><strong>导入博客老是报错怎么办？</strong></p>
+<p>可以试试重新部署，把原文件夹的.deploy_git文件夹（这个文件夹就是你在你的github仓库上传的东西）删掉，在该目录下打开git bash，依次执行<code>git cl</code>，<code>git g</code>，<code>git d</code></p>
+<p>git g和git d上面都讲过了，git cl是git clean简写，用处是删掉封装的public文件</p>
+<p>所以上面三条命令依次执行表示的意思是<code>重新封装</code>public文件夹，<code>重新上传</code>到github仓库</p>
+<hr>
+<h2><span id="八-教程参考">八、教程参考</span></h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Yaoyao2024/article/details/132123525?ops_request_misc=%7B%22request_id%22:%22171231839516800213012605%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=171231839516800213012605&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-132123525-null-null.142%5Ev100%5Epc_search_result_base3&utm_term=git%E7%94%9F%E6%88%90ssh%E5%AF%86%E9%92%A5&spm=1018.2226.3001.4187">【Git】保姆级详解：Git配置SSH Key（密钥和公钥）到github_git ssh密钥-CSDN博客</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1sK41187iw/?spm_id_from=333.337.search-card.all.click&vd_source=693a34f64c5753d31cacca43057ce38b">WIN如何正确安装nodejs及配置npm教程_哔哩哔哩_bilibili</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/laosao_66/article/details/133048064?ops_request_misc=%7B%22request_id%22:%22171240907216800222836556%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=171240907216800222836556&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-133048064-null-null.142%5Ev100%5Epc_search_result_base3&utm_term=typora%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%95%99%E7%A8%8B&spm=1018.2226.3001.4187">Markdown（MD）——Typora Markdown安装教程（2023九月亲测可用！！！）_md编辑器-CSDN博客</a></p>
+</blockquote>
+<p>在此鸣谢上面的大佬！</p>
+
+	</article>
+
+	 
+    <div class="kira-post-copyright">
+        <strong>本文作者：</strong>mumulin<br>
+        <strong>本文链接：</strong><a href="https://mumulin.chat/2024/04/06/24-04-06-1th/" title="https:&#x2F;&#x2F;mumulin.chat&#x2F;2024&#x2F;04&#x2F;06&#x2F;24-04-06-1th&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;mumulin.chat&#x2F;2024&#x2F;04&#x2F;06&#x2F;24-04-06-1th&#x2F;</a><br>
+        
+            <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+        
+    </div>
+
+  
+	<div class="kira-post-nav">
+		<nav class="post-nav">
+			
+		</nav>
+	</div>
+	
+	<div class="kira-post-meta kira-rainbow">
+		
+		
+	</div>
+	
+	<div class="kira-post-footer">
+		
+
+		
+	<div class="giscus"></div>
+  
+    <script src="https://giscus.app/client.js"
+      data-repo="-your github username-/-your giscus repo-"
+      data-repo-id="-your giscus repo ID-"
+      data-category="Announcements"
+      data-category-id="-giscus category id-"
+      data-mapping="pathname"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-input-position="top"
+      data-theme="light"
+      data-lang="en"
+      data-loading="lazy"
+      crossorigin="anonymous"
+      async  
+    ></script>
+  
+
+	</div>
+	
+</div>
+
+				</div>
+			</div>
+			<div class="kira-right-column">
+	<a onclick="document.querySelector('#kira-top-header').scrollIntoView({behavior: 'smooth'});" class="kira-backtotop" aria-label="回到顶部" title="回到顶部">
+		<button class="mdui-fab mdui-ripple">
+			<i class="kirafont icon-caret-up"></i>
+		</button>
+	</a>
+</div>
+
+		</div>
+	</body>
+</html>
